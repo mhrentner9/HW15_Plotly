@@ -19,7 +19,7 @@ var bar_chart = d3.select("#bar");
 var bubble_chart = d3.select("bubble");
 
 
-// create a function to initially populate dropdown menu with IDs and draw charts by default (using the first ID)
+// use init function to populate blank dropdown menu with IDs and draw charts by default (using ID)
 function init() {
 
     // read in samples from JSON file
@@ -27,7 +27,7 @@ function init() {
 
         // ----------------------------------
         // POPULATE DROPDOWN MENU WITH IDs 
-        // ----------------------------------
+        
 
         //  use a forEach to loop over each name in the array data.names to populate dropdowns with IDs
         data.names.forEach((name => {
@@ -51,8 +51,8 @@ function init() {
 function resetData() {
 
     // ----------------------------------
-    // CLEAR THE DATA
-    // ----------------------------------
+    // CLEAR DATA
+    
 
     demo_info.html("");
     bar_chart.html("");
@@ -68,7 +68,7 @@ function plotCharts(id) {
 
         // ----------------------------------
         // POPULATE DEMOGRAPHICS TABLE
-        // ----------------------------------
+        
 
         // filter the metadata for the ID chosen
         var individualMetadata = data.metadata.filter(participant => participant.id == id)[0];
@@ -93,9 +93,9 @@ function plotCharts(id) {
 
         }); // close forEach
 
-        // --------------------------------------------------
+        // ----------------------------------
         // RETRIEVE DATA FOR PLOTTING CHARTS
-        // --------------------------------------------------
+       
 
         // filter the samples for the ID chosen
         var individualSample = data.samples.filter(sample => sample.id == id)[0];
@@ -133,9 +133,9 @@ function plotCharts(id) {
         // use the map function to store the IDs with "OTU" for labelling y-axis
         var topOtuIdsFormatted = topOtuIds.map(otuID => "OTU " + otuID);
 
-        // ----------------------------------
+       // ----------------------------------
         // PLOT BAR CHART
-        // ----------------------------------
+       
 
         // create a trace
         var traceBar = {
@@ -186,7 +186,7 @@ function plotCharts(id) {
 
         // ----------------------------------
         // PLOT BUBBLE CHART
-        // ----------------------------------
+       
 
         // create trace
         var traceBub = {
